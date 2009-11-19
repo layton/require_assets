@@ -16,18 +16,17 @@ Ruby on Rails helpers to add asset links to views. Extracted from merb-assets Me
 require_js and require_css, include_required_js and include_requried_css
 require assets just once:		
 
- 
- In your application layout:
+In your application layout:
  
         include_required_js
  
- In your controller layout:
+In your controller layout:
  
         require_js 'posts.js'
 
- The require_js method can be used to require any JavaScript file anywhere
- in your templates. Regardless of how many times a single script is
- included with require_js, it will only be included once in the header.
+The require_js method can be used to require any JavaScript file anywhere
+in your templates. Regardless of how many times a single script is
+included with require_js, it will only be included once in the header.
 
    # File: app/views/layouts/application.html.erb
 
