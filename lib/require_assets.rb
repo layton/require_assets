@@ -1,43 +1,23 @@
 module RequireAssets
   module Helpers
-    # :section: External JavaScript and Stylesheets
+    # The require_js method can be used to require any JavaScript file anywhere in
+    # your templates. Regardless of how many times a single script is included
+    # with require_js, Rails will only include it once in the header.
     #
-    # You can use require_js(:prototype) or require_css(:shinystyles)
-    # from any view or layout, and the scripts will only be included once
-    # in the head of the final page. To get this effect, the head of your
-    # layout you will need to include a call to include_required_js and
-    # include_required_css.
+    # @param [#to_s] JavaScript files to include
     #
-    # ==== Examples
-    # # File: app/views/layouts/application.html.erb
+    # @example
+    #   <% require_js('jquery') %>
+    #   # A subsequent call to include_required_js will render...
+    #   # => <script src="/javascripts/jquery.js" type="text/javascript"></script>
     #
-    # <html>
-    # <head>
-    # <%= include_required_js %>
-    # <%= include_required_css %>
-    # </head>
-    # <body>
-    # <%= yield %>
-    # </body>
-    # </html>
+    # @example
+    #   <% require_js('jquery', 'effects', 'validation') %>
     #
-    # # File: app/views/whatever/index.html.erb
-    #
-    # <% require_js 'this' -%>
-    # <% require_css 'that', 'another_one' -%>
-    #
-    # # Will generate the following in the final page...
-    # <html>
-    # <head>
-    # <script src="/javascripts/this.js" type="text/javascript"></script>
-    # <script src="/javascripts/something_else.js" type="text/javascript"></script>
-    # <link href="/stylesheets/that.css" media="all" rel="Stylesheet" type="text/css"/>
-    # <link href="/stylesheets/another_one.css" media="all" rel="Stylesheet" type="text/css"/>
-    # </head>
-    # .
-    # .
-    # .
-    # </html>
+    #   # A subsequent call to include_required_js will render...
+    #   # => <script src="/javascripts/jquery.js" type="text/javascript"></script>
+    #   #    <script src="/javascripts/effects.js" type="text/javascript"></script>
+    #   #    <script src="/javascripts/validation.js" type="text/javascript"></script>
     #
     def require_js(*js)
       @required_js ||= []
@@ -46,20 +26,20 @@ module RequireAssets
   
     # The require_css method can be used to require any CSS file anywhere in
     # your templates. Regardless of how many times a single stylesheet is
-    # included with require_css, Merb will only include it once in the header.
+    # included with require_css, Rails will only include it once in the header.
     #
-    # ==== Parameters
-    # *css<~to_s>:: CSS files to include.
+    # @param [#to_s] CSS files to include
     #
-    # ==== Examples
-    # <% require_css('style') %>
-    # # A subsequent call to include_required_css will render...
-    # # => <link href="/stylesheets/style.css" media="all" rel="Stylesheet" type="text/css"/>
+    # @example
+    #   <% require_css('style') %>
+    #   # A subsequent call to include_required_css will render...
+    #   # => <link href="/stylesheets/style.css" media="screen" rel="Stylesheet" type="text/css"/>
     #
-    # <% require_css('style', 'ie-specific') %>
-    # # A subsequent call to include_required_css will render...
-    # # => <link href="/stylesheets/style.css" media="all" rel="Stylesheet" type="text/css"/>
-    # # <link href="/stylesheets/ie-specific.css" media="all" rel="Stylesheet" type="text/css"/>
+    # @example
+    #   <% require_css('style', 'ie-specific') %>
+    #   # A subsequent call to include_required_css will render...
+    #   # => <link href="/stylesheets/style.css" media="screen" rel="stylesheet" type="text/css"/>
+    #   #    <link href="/stylesheets/ie-specific.css" media="screen" rel="stylesheet" type="text/css"/>
     #
     def require_css(*css)
       @required_css ||= []
@@ -70,21 +50,21 @@ module RequireAssets
     # to include JavaScripts required in in templates and subtemplates using
     # require_js.
     #
-    # ==== Returns
-    # String:: The JavaScript tag.
+    # @return [String] The JavaScript tag
     #
-    # ==== Examples
-    # # my_action.herb has a call to require_js 'jquery'
-    # # File: layout/application.html.erb
-    # include_required_js
-    # # => <script src="/javascripts/jquery.js" type="text/javascript"></script>
+    # @example
+    #   # my_action.html.erb has a call to require_js 'jquery'
+    #   # File: layout/application.html.erb
+    #   include_required_js
+    #   # => <script src="/javascripts/jquery.js" type="text/javascript"></script>
     #
-    # # my_action.html.erb has a call to require_js 'jquery', 'effects', 'validation'
-    # # File: layout/application.html.erb
-    # include_required_js
-    # # => <script src="/javascripts/jquery.js" type="text/javascript"></script>
-    # # <script src="/javascripts/effects.js" type="text/javascript"></script>
-    # # <script src="/javascripts/validation.js" type="text/javascript"></script>
+    # @example
+    #   # my_action.html.erb has a call to require_js 'jquery', 'effects', 'validation'
+    #   # File: layout/application.html.erb
+    #   include_required_js
+    #   # => <script src="/javascripts/jquery.js" type="text/javascript"></script>
+    #   #    <script src="/javascripts/effects.js" type="text/javascript"></script>
+    #   #    <script src="/javascripts/validation.js" type="text/javascript"></script>
     #
     def include_required_js
       return '' if @required_js.nil?
@@ -95,20 +75,20 @@ module RequireAssets
     # CSS stylesheets required in in templates and subtemplates using
     # require_css.
     #
-    # ==== Returns
-    # String:: The CSS tag.
+    # @return [String] The CSS tag
     #
-    # ==== Examples
-    # # my_action.herb has a call to require_css 'style'
-    # # File: layout/application.html.erb
-    # include_required_css
-    # # => <link href="/stylesheets/style.css" media="all" rel="Stylesheet" type="text/css"/>
+    # @example
+    #   # my_action.html.erb has a call to require_css 'style'
+    #   # File: layout/application.html.erb
+    #   include_required_css
+    #   # => <link href="/stylesheets/style.css" media="screen" rel="stylesheet" type="text/css"/>
     #
-    # # my_action.herb has a call to require_js 'style', 'ie-specific'
-    # # File: layout/application.html.erb
-    # include_required_css
-    # # => <link href="/stylesheets/style.css" media="all" rel="Stylesheet" type="text/css"/>
-    # # <link href="/stylesheets/ie-specific.css" media="all" rel="Stylesheet" type="text/css"/>
+    # @example
+    #   # my_action.html.erb has a call to require_js 'style', 'ie-specific'
+    #   # File: layout/application.html.erb
+    #   include_required_css
+    #   # => <link href="/stylesheets/style.css" media="screen" rel="stylesheet" type="text/css"/>
+    #        <link href="/stylesheets/ie-specific.css" media="screen" rel="stylesheet" type="text/css"/>
     #
     def include_required_css
       return '' if @required_css.nil?

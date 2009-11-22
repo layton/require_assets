@@ -4,53 +4,48 @@ Ruby on Rails helpers to add asset links to views. Extracted from merb-assets Me
 
 == Quick overview of the API
 
-	# require_js is smart(-er) way to do includes just once per page no matter
-	  how many times partial use it.
-	# require_css is like require_js but for CSS.
-		 
-	# include_required_js generates script tags for previously included files.
-	# include_required_css generates link tags for previously included files.
+* {RequireAssets::Helpers#require_js require_js} is smart(-er) way to do includes just once per page no matter how many times partial use it.
+* {RequireAssets::Helpers#require_css require_css} is like require_js but for CSS. 
+* {RequireAssets::Helpers#include_required_js include_required_js} generates script tags for previously included files.
+* {RequireAssets::Helpers#include_required_css include_required_css} generates link tags for previously included files.
 
 == Examples
 
-require_js and require_css, include_required_js and include_requried_css
-require assets just once:		
+{RequireAssets::Helpers#require_js require_js} and {RequireAssets::Helpers#require_css require_css},  {RequireAssets::Helpers#include_required_js include_required_js} and {RequireAssets::Helpers#include_required_css include_required_css} require assets just once:
 
 In your application layout:
- 
-        include_required_js
+
+  include_required_js
  
 In your controller layout:
  
-        require_js 'posts.js'
+  require_js 'posts'
 
-The require_js method can be used to require any JavaScript file anywhere
-in your templates. Regardless of how many times a single script is
-included with require_js, it will only be included once in the header.
+The require_js method can be used to require any JavaScript file anywhere in your templates. Regardless of how many times a single script is included with require_js, it will only be included once in the header.
 
-   # File: app/views/layouts/application.html.erb
+  # File: app/views/layouts/application.html.erb
 
-   <html>
-     <head>
-       <%= include_required_js %>
-       <%= include_required_css %>
-     </head>
-     <body>
-       <%= yield %>
-     </body>
-   </html>
+  <html>
+    <head>
+      <%= include_required_js %>
+      <%= include_required_css %>
+    </head>
+    <body>
+     <%= yield %>
+    </body>
+  </html>
  
-   # File: app/views/whatever/index.html.erb
+  # File: app/views/whatever/index.html.erb
 
-   <% require_js  'this' -%>
-   <% require_css 'that', 'another_one' -%>
+  <% require_js  'this' -%>
+  <% require_css 'that', 'another_one' -%>
  
    # Will generate the following in the final page...
    <html>
      <head>
        <script src="/javascripts/this.js" type="text/javascript"></script>
-       <link href="/stylesheets/that.css" media="all" rel="Stylesheet" type="text/css"/>
-       <link href="/stylesheets/another_one.css" media="all" rel="Stylesheet" type="text/css"/>
+       <link href="/stylesheets/that.css" media="screen" rel="stylesheet" type="text/css"/>
+       <link href="/stylesheets/another_one.css" media="screen" rel="stylesheet" type="text/css"/>
      </head>
      .
      .
