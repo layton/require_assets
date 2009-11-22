@@ -1,0 +1,496 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Content-Type" content="text/html; charset=UTF-8" />
+<title>Module: RequireAssets::Helpers</title>
+<link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (H)</a> &raquo; 
+    <a href="../RequireAssets.html" title="RequireAssets">RequireAssets</a>
+     &raquo; 
+    <span class="title">Helpers</span>
+  
+</div>
+
+      <div id="search">
+  <a id="class_list_link" href="#">Namespace List</a>
+  <a id="method_list_link" href="#">Method List</a>
+  <a id ="file_list_link" href="#">File List</a>
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Module: RequireAssets::Helpers 
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/require_assets.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+
+
+
+  <h2>Method Summary</h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature"><a href="#include_required_css-instance_method" title="#include_required_css (instance method)">- (String) <strong>include_required_css</strong> </a>
+  
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">
+A method used in the layout of an application to create
+<tt>&lt;link&gt;</tt> tags for CSS stylesheets required in in templates and
+subtemplates using require_css.
+
+</span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature"><a href="#include_required_js-instance_method" title="#include_required_js (instance method)">- (String) <strong>include_required_js</strong> </a>
+  
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">
+A method used in the layout of an application to create
+<tt>&lt;script&gt;</tt> tags to include JavaScripts required in in
+templates and subtemplates using require_js.
+
+</span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature"><a href="#require_css-instance_method" title="#require_css (instance method)">- (Object) <strong>require_css</strong>(*css) </a>
+  
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">
+The require_css method can be used to require any CSS file anywhere in your
+templates.
+
+</span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature"><a href="#require_js-instance_method" title="#require_js (instance method)">- (Object) <strong>require_js</strong>(*js) </a>
+  
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">
+The require_js method can be used to require any JavaScript file anywhere
+in your templates.
+
+</span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+  <div id="method_details">
+    <h2>Method Details</h2>
+    
+      <div class="method_details first">
+  <p class="signature first" id="include_required_css-instance_method">
+  
+    - (<tt>String</tt>) <strong>include_required_css</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+A method used in the layout of an application to create
+<tt>&lt;link&gt;</tt> tags for CSS stylesheets required in in templates and
+subtemplates using require_css.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <h3>Examples:</h3>
+    
+      <h4></h4>
+      <pre class="example code">  <span class='comment val'># my_action.html.erb has a call to require_css 'style'</span>
+  <span class='comment val'># File: layout/application.html.erb</span>
+  <span class='include_required_css identifier id'>include_required_css</span>
+  <span class='comment val'># =&gt; &lt;link href=&quot;/stylesheets/style.css&quot; media=&quot;screen&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;</span>
+</pre>
+    
+      <h4></h4>
+      <pre class="example code">  <span class='comment val'># my_action.html.erb has a call to require_js 'style', 'ie-specific'</span>
+  <span class='comment val'># File: layout/application.html.erb</span>
+  <span class='include_required_css identifier id'>include_required_css</span>
+  <span class='comment val'># =&gt; &lt;link href=&quot;/stylesheets/style.css&quot; media=&quot;screen&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;</span>
+       <span class='lt op'>&lt;</span><span class='link identifier id'>link</span> <span class='href identifier id'>href</span><span class='assign token'>=</span><span class='string val'>&quot;/stylesheets/ie-specific.css&quot;</span> <span class='media identifier id'>media</span><span class='assign token'>=</span><span class='string val'>&quot;screen&quot;</span> <span class='rel identifier id'>rel</span><span class='assign token'>=</span><span class='string val'>&quot;stylesheet&quot;</span> <span class='type identifier id'>type</span><span class='assign token'>=</span><span class='string val'>&quot;text/css&quot;</span><span class='div op'>/</span><span class='gt op'>&gt;</span>
+</pre>
+    
+  </div>
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        
+The CSS tag
+
+
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+93
+94
+95
+96</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/require_assets.rb', line 93</span>
+
+<span class='def def kw'>def</span> <span class='include_required_css identifier id'>include_required_css</span>
+  <span class='return return kw'>return</span> <span class='string val'>''</span> <span class='if if_mod kw'>if</span> <span class='@required_css ivar id'>@required_css</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span>
+  <span class='stylesheet_link_tag identifier id'>stylesheet_link_tag</span><span class='lparen token'>(</span><span class='mult op'>*</span><span class='@required_css ivar id'>@required_css</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="include_required_js-instance_method">
+  
+    - (<tt>String</tt>) <strong>include_required_js</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+A method used in the layout of an application to create
+<tt>&lt;script&gt;</tt> tags to include JavaScripts required in in
+templates and subtemplates using require_js.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <h3>Examples:</h3>
+    
+      <h4></h4>
+      <pre class="example code">  <span class='comment val'># my_action.html.erb has a call to require_js 'jquery'</span>
+  <span class='comment val'># File: layout/application.html.erb</span>
+  <span class='include_required_js identifier id'>include_required_js</span>
+  <span class='comment val'># =&gt; &lt;script src=&quot;/javascripts/jquery.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</span>
+</pre>
+    
+      <h4></h4>
+      <pre class="example code">  <span class='comment val'># my_action.html.erb has a call to require_js 'jquery', 'effects', 'validation'</span>
+  <span class='comment val'># File: layout/application.html.erb</span>
+  <span class='include_required_js identifier id'>include_required_js</span>
+  <span class='comment val'># =&gt; &lt;script src=&quot;/javascripts/jquery.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</span>
+  <span class='comment val'>#    &lt;script src=&quot;/javascripts/effects.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</span>
+  <span class='comment val'>#    &lt;script src=&quot;/javascripts/validation.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</span>
+</pre>
+    
+  </div>
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        
+The JavaScript tag
+
+
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+69
+70
+71
+72</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/require_assets.rb', line 69</span>
+
+<span class='def def kw'>def</span> <span class='include_required_js identifier id'>include_required_js</span>
+  <span class='return return kw'>return</span> <span class='string val'>''</span> <span class='if if_mod kw'>if</span> <span class='@required_js ivar id'>@required_js</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span>
+  <span class='javascript_include_tag identifier id'>javascript_include_tag</span><span class='lparen token'>(</span><span class='mult op'>*</span><span class='@required_js ivar id'>@required_js</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="require_css-instance_method">
+  
+    - (<tt>Object</tt>) <strong>require_css</strong>(*css) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+The require_css method can be used to require any CSS file anywhere in your
+templates. Regardless of how many times a single stylesheet is included
+with require_css, Rails will only include it once in the header.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <h3>Examples:</h3>
+    
+      <h4></h4>
+      <pre class="example code">  <span class='lt op'>&lt;</span><span class='string val'>% require_css('style') </span><span class='mod op'>%</span><span class='gt op'>&gt;</span>
+  <span class='comment val'># A subsequent call to include_required_css will render...</span>
+  <span class='comment val'># =&gt; &lt;link href=&quot;/stylesheets/style.css&quot; media=&quot;screen&quot; rel=&quot;Stylesheet&quot; type=&quot;text/css&quot;/&gt;</span>
+</pre>
+    
+      <h4></h4>
+      <pre class="example code">  <span class='lt op'>&lt;</span><span class='string val'>% require_css('style', </span><span class='string val'>'ie-specific'</span><span class='rparen token'>)</span> <span class='mod op'>%</span><span class='gt op'>&gt;</span>
+  <span class='comment val'># A subsequent call to include_required_css will render...</span>
+  <span class='comment val'># =&gt; &lt;link href=&quot;/stylesheets/style.css&quot; media=&quot;screen&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;</span>
+  <span class='comment val'>#    &lt;link href=&quot;/stylesheets/ie-specific.css&quot; media=&quot;screen&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;</span>
+</pre>
+    
+  </div>
+<h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt>#to_s</tt>)</span>
+      
+      
+        <span class='name'>CSS</span>
+      
+      
+      
+        &mdash;
+        
+files to include
+
+
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+44
+45
+46
+47</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/require_assets.rb', line 44</span>
+
+<span class='def def kw'>def</span> <span class='require_css identifier id'>require_css</span><span class='lparen token'>(</span><span class='mult op'>*</span><span class='css identifier id'>css</span><span class='rparen token'>)</span>
+  <span class='@required_css ivar id'>@required_css</span> <span class='opasgn op'>||=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
+  <span class='@required_css ivar id'>@required_css</span> <span class='opasgn op'>|=</span> <span class='css identifier id'>css</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="require_js-instance_method">
+  
+    - (<tt>Object</tt>) <strong>require_js</strong>(*js) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+The require_js method can be used to require any JavaScript file anywhere
+in your templates. Regardless of how many times a single script is included
+with require_js, Rails will only include it once in the header.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <h3>Examples:</h3>
+    
+      <h4></h4>
+      <pre class="example code">  <span class='lt op'>&lt;</span><span class='string val'>% require_js('jquery') </span><span class='mod op'>%</span><span class='gt op'>&gt;</span>
+  <span class='comment val'># A subsequent call to include_required_js will render...</span>
+  <span class='comment val'># =&gt; &lt;script src=&quot;/javascripts/jquery.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</span>
+</pre>
+    
+      <h4></h4>
+      <pre class="example code">  <span class='lt op'>&lt;</span><span class='string val'>% require_js('jquery', </span><span class='string val'>'effects'</span><span class='comma token'>,</span> <span class='string val'>'validation'</span><span class='rparen token'>)</span> <span class='mod op'>%</span><span class='gt op'>&gt;</span>
+
+  <span class='comment val'># A subsequent call to include_required_js will render...</span>
+  <span class='comment val'># =&gt; &lt;script src=&quot;/javascripts/jquery.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</span>
+  <span class='comment val'>#    &lt;script src=&quot;/javascripts/effects.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</span>
+  <span class='comment val'>#    &lt;script src=&quot;/javascripts/validation.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</span>
+</pre>
+    
+  </div>
+<h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt>#to_s</tt>)</span>
+      
+      
+        <span class='name'>JavaScript</span>
+      
+      
+      
+        &mdash;
+        
+files to include
+
+
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+22
+23
+24
+25</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/require_assets.rb', line 22</span>
+
+<span class='def def kw'>def</span> <span class='require_js identifier id'>require_js</span><span class='lparen token'>(</span><span class='mult op'>*</span><span class='js identifier id'>js</span><span class='rparen token'>)</span>
+  <span class='@required_js ivar id'>@required_js</span> <span class='opasgn op'>||=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
+  <span class='@required_js ivar id'>@required_js</span> <span class='opasgn op'>|=</span> <span class='js identifier id'>js</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sun Nov 22 10:28:52 2009 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
+  0.4.0 (ruby-1.8.7).
+</div>
+
+  </body>
+</html>
