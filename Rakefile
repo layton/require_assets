@@ -8,7 +8,7 @@ begin
     gem.summary = 'Ruby on Rails helpers to add asset links to views.'
     gem.description = 'Ruby on Rails helpers to add asset links to views. Extracted from merb-assets Merb plugin.'
     gem.email = "jeremy.burks@gmail.com"
-    gem.homepage = "http://github.com/jrun/require_assets"
+    gem.homepage = "http://jrun.github.com/require_assets"
     gem.authors = ["Jeremy Burks"]
     gem.add_development_dependency "rspec", ">= 1.2.9"
     gem.add_development_dependency "yard", ">= 0"
