@@ -95,4 +95,20 @@ module RequireAssets
       stylesheet_link_tag(*@required_css)
     end  
   end
+  
+  module ClassMethods
+    def require_css(*args)
+      options = args.extract_options!
+      before_filter(options) do |controller|
+        controller.send(:require_css, args) 
+      end
+    end
+    
+    def require_js(*args)
+      options = args.extract_options!
+      before_filter(options) do |controller|
+        controller.send(:require_js, args) 
+      end
+    end
+  end
 end
